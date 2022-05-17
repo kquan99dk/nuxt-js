@@ -18,7 +18,14 @@
               placeholder="Search..."
             >
           </div>
-          <q-select />
+          <q-select placeholder="test">
+            <q-option
+              v-for="item in options"
+              :key="item.value"
+              :value="item.value"
+              :label="item.label"
+            />
+          </q-select>
         </div>
         <div class="box-button d-flex">
           <button class="btn btn-ListShare">
@@ -79,9 +86,10 @@
   </div>
 </template>
 <script>
+import QOption from '../components/q-option.vue'
 import qSelect from '../components/q-select.vue'
 export default {
-  components: { qSelect },
+  components: { qSelect, QOption },
   data () {
     return {
       data: [
@@ -120,7 +128,7 @@ export default {
           }
         }
       ],
-      option: [
+      options: [
         {
           value: 1,
           label: 'option1'
